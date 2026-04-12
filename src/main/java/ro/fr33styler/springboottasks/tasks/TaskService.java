@@ -42,7 +42,6 @@ public class TaskService {
     @Transactional
     public void deleteTask(String username, long id) {
         Task task = repository.getReferenceById(id);
-
         if (!task.getUsername().equals(username)) throw new IllegalArgumentException("Invalid username!");
 
         repository.delete(task);

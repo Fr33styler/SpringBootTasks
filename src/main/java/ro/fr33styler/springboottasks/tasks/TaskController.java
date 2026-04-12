@@ -74,7 +74,7 @@ public class TaskController {
         return taskService.filterTasksByUsernamePriorityAndStatus(username, priority, status);
     }
 
-    @GetMapping("/{username}/tasks")
+    @GetMapping("/{username}/sorted-tasks")
     public List<TaskDTO> sortByUsername(@PathVariable String username,
                                         @RequestParam String sortBy,
                                         @RequestParam(defaultValue = "asc") String direction) {

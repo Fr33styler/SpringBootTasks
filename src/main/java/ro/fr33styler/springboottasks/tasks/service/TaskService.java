@@ -1,9 +1,11 @@
-package ro.fr33styler.springboottasks.tasks;
+package ro.fr33styler.springboottasks.tasks.service;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import ro.fr33styler.springboottasks.tasks.TaskRequest;
+import ro.fr33styler.springboottasks.tasks.repository.TaskRepository;
 import ro.fr33styler.springboottasks.tasks.task.Task;
 import ro.fr33styler.springboottasks.tasks.task.TaskDTO;
 import ro.fr33styler.springboottasks.tasks.task.TaskPriority;

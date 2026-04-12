@@ -1,4 +1,4 @@
-package ro.fr33styler.springboottasks.tasks;
+package ro.fr33styler.springboottasks.tasks.repository;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;

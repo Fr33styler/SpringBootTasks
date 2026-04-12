@@ -39,7 +39,19 @@ public class TaskController {
         } catch (EntityNotFoundException exception) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid id!");
         } catch (IllegalArgumentException exception) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+            return ResponseEntity.badRequest().body(exception.getMessage());
+        }
+    }
+
+    @PatchMapping("/{username}/{id}/progress/{progress}")
+    public ResponseEntity<String> updateProgress(@PathVariable String username, @PathVariable long id, @PathVariable float progress) {
+        try {
+            taskService.updateTaskProgress(username, id, progress);
+            return ResponseEntity.ok().body("Task updated successfully!");
+        } catch (EntityNotFoundException exception) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid id!");
+        } catch (IllegalArgumentException exception) {
+            return ResponseEntity.badRequest().body(exception.getMessage());
         }
     }
 
@@ -51,7 +63,7 @@ public class TaskController {
         } catch (EntityNotFoundException exception) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid id!");
         } catch (IllegalArgumentException exception) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+            return ResponseEntity.badRequest().body(exception.getMessage());
         }
     }
 

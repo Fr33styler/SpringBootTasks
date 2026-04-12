@@ -40,6 +40,14 @@ public class TaskService {
     }
 
     @Transactional
+    public void updateTaskProgress(String username, long id, float progress) {
+        Task task = repository.getReferenceById(id);
+        if (!task.getUsername().equals(username)) throw new IllegalArgumentException("Invalid username!");
+
+        task.setProgress(progress);
+    }
+
+    @Transactional
     public void deleteTask(String username, long id) {
         Task task = repository.getReferenceById(id);
         if (!task.getUsername().equals(username)) throw new IllegalArgumentException("Invalid username!");

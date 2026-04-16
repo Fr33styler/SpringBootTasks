@@ -47,15 +47,15 @@ public class TaskController {
 
     @GetMapping("/{username}/filtered-tasks")
     public List<TaskDTO> filterByUsernameAndParams(@PathVariable String username,
-                                          @RequestParam(defaultValue = "") String priority,
-                                          @RequestParam(defaultValue = "") String status) {
+                                                   @RequestParam(defaultValue = "") String priority,
+                                                   @RequestParam(defaultValue = "") String status) {
         return taskService.filterTasksByUsernamePriorityAndStatus(username, priority, status);
     }
 
     @GetMapping("/{username}/sorted-tasks")
-    public List<TaskDTO> sortByUsername(@PathVariable String username,
-                                        @RequestParam String sortBy,
-                                        @RequestParam(defaultValue = "asc") String direction) {
+    public List<TaskDTO> sortByUsernameAndParams(@PathVariable String username,
+                                                 @RequestParam String sortBy,
+                                                 @RequestParam(defaultValue = "asc") String direction) {
         Sort.Direction sortDirection = direction.equals("desc") ? Sort.Direction.DESC : Sort.Direction.ASC;
 
         return taskService.sortByUsername(username, sortBy, sortDirection);
